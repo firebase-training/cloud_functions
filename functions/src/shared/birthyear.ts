@@ -1,0 +1,1 @@
+export const estimateBirthYear = (age: number) => new Date().getFullYear() - age
