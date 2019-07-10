@@ -1,4 +1,3 @@
-/* tslint:disable */
 // Assertion library.
 import { expect, use } from 'chai';
 // Extends Chai with assertions for the Sinon.JS 
