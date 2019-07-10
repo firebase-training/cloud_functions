@@ -1,5 +1,6 @@
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
+import { migrateAgetoBirthdayRequest, migrateAgetoBirthdayWithTransactionRequest } from './migrate-requests';
 
 const FieldValue = admin.firestore.FieldValue;
 
@@ -17,18 +18,6 @@ export const estimateBirthday = functions.firestore.document('TODO').onUpdate((c
 });
 
 
-export const migrateAgetoBirthday = functions.https.onRequest((request, response) => {
-    admin.initializeApp({
-        credential: admin.credential.applicationDefault()
-    });
+export const migrateAgetoBirthday = functions.https.onRequest(migrateAgetoBirthdayRequest);
 
-    const db = admin.firestore();
-
-    const usersRef = db.collection('users');
-
-     // TODO do migration
-});
-
-export const migrateAgetoBirthdayWithTransaction = functions.https.onRequest((request, response) => {
-    // TODO same as above with transactions
-});
+export const migrateAgetoBirthdayWithTransaction = functions.https.onRequest(migrateAgetoBirthdayWithTransactionRequest);
